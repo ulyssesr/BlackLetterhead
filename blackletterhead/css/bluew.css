@@ -1,0 +1,40 @@
+body {
+	background-color: #000030;
+	}
+
+h1, h1 a, h1 a:hover, h1 a:visited, .description {
+	color: #0077FF;
+	}
+
+.entry p a:visited {
+	color: #0077FF;
+	}
+
+a, h2 a:hover, h3 a:hover {
+        color: #0077FF;
+	}
+
+#page {
+	width: 960px;
+	}
+	
+.narrowcolumn {
+	width: 650px;
+	}
+
+.widecolumn {
+	width: 650px;
+	}
+
+#footer {
+	width: 960px;
+	}
+
+#sidebar
+	{
+	margin-left: 745px;
+	}
+
+#header {
+	background-image: url('../images/header-blue.png');
+	}

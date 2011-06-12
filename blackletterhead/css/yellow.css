@@ -1,0 +1,19 @@
+body {
+	background-color: #303000;
+	}
+
+h1, h1 a, h1 a:hover, h1 a:visited, .description {
+	color: #dddd00;
+	}
+
+.entry p a:visited {
+	color: #dddd00;
+	}
+
+a, h2 a:hover, h3 a:hover {
+        color: #dddd00;
+	}
+
+#header {
+	background-image: url('../images/header-yellow.png');
+	}
