@@ -1,7 +1,9 @@
 <?php get_header(); ?>
-<?php if ($blackletterhead->option['singlewithsidebar'] == "yes") { blackletterhead_singlewithsidebardiv(); } else { ?>
+<?php if ($blackletterhead->option['singlewithsidebar'] == "yes"): 
+blackletterhead_singlewithsidebardiv();
+else: ?>
 <div id="content" class="widecolumn">
-<?php } ?>
+<?php endif; ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <div class="post">
     <div class="navigation">

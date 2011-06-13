@@ -23,7 +23,6 @@
 </style>
 </head>
 <body>
-
 <div id="page">
 <div id="header" onclick="location.href='<?php bloginfo('url');?>';" style="cursor:pointer;">
 <?php blackletterhead_displayheader(); ?>
