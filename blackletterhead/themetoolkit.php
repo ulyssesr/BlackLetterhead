@@ -38,7 +38,7 @@ if (!class_exists('ThemeToolkit')) {
 			
 			global $wp_version;
 			// is it WP 2.0+ and do we have plugins like "../themes/foo/functions.php" running ?
-			if ( $wp_version >= 2 and count(@preg_grep('#^\.\./themes/[^/]+/functions.php$#', get_settings('active_plugins'))) > 0 ) {
+			if ( $wp_version >= 2 and count(@preg_grep('#^\.\./themes/[^/]+/functions.php$#', get_option('active_plugins'))) > 0 ) {
 				wp_cache_flush();
 				$this->upgrade_toolkit();
 			}
@@ -46,13 +46,13 @@ if (!class_exists('ThemeToolkit')) {
 			$this->infos['path'] = '../themes/' . basename(dirname($file));
 
 			/* Create some vars needed if an admin menu is to be printed */
-			if ($array['debug']) {
+			if (isset($array['debug'])) {
 				if ((basename($file)) == $_GET['page']) $this->infos['debug'] = 1;
 				unset($array['debug']);
 			}
-			if ((basename($file)) == $_GET['page']){
-				$this->infos['menu_options'] = $array;
-				$this->infos['classname'] = $theme;
+         if (isset($_GET['page']) && basename($file) == $_GET['page']){
+					$this->infos['menu_options'] = $array;
+					$this->infos['classname'] = $theme;
 			}
 			$this->option=array();
 
@@ -92,7 +92,7 @@ if (!class_exists('ThemeToolkit')) {
 			foreach ($themes as $theme) {
 				$current= basename($theme['Template Dir']);
 				if ($current == $shouldbe) {
-					if (get_settings('template') == $current) {
+					if (get_option('template') == $current) {
 						$this->infos['active'] = TRUE;
 					} else {
 						$this->infos['active'] = FALSE;
@@ -328,7 +328,7 @@ if (!class_exists('ThemeToolkit')) {
 			global $wp_version;
 			if ($wp_version<2) {		
 				$us = $this->infos['path'].'/functions.php';
-				$them = get_settings('active_plugins');
+				$them = get_option('active_plugins');
 				/* Now, are we members of the PPC (Plugins Private Club) yet ? */
 				if (!in_array($us,$them)) {
 					/* No ? Jeez, claim member card ! */
@@ -353,7 +353,7 @@ if (!class_exists('ThemeToolkit')) {
 			global $wp_version;
 			if ($wp_version<2) {
 				$us = $this->infos['path'].'/functions.php';
-				$them = get_settings('active_plugins');
+				$them = get_option('active_plugins');
 				if (in_array($us,$them)) {
 					$here = array_search($us,$them);
 					unset($them[$here]);
@@ -372,8 +372,8 @@ if (!class_exists('ThemeToolkit')) {
 		 **************************************/
 
 		/* Clean plugins lists in order to work with Wordpress 2.0 */
-		function upgrade_toolkit () {
-			$plugins=get_settings('active_plugins');
+		function upgrade_toolget_settingskit () {
+			$plugins=get_option('active_plugins');
 			$delete=@preg_grep('#^\.\./themes/[^/]+/functions.php$#', $plugins);
 			$result=array_diff($plugins,$delete);
 			$temp = array();

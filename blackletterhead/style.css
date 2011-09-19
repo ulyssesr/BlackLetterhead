@@ -4,12 +4,11 @@ Theme URI: http://ulyssesonline.com/blackletterhead
 Description: Black Letterhead is a 2-column minimalistic theme with a black background.
 Author: Ulysses Ronquillo
 Author URI: http://ulyssesonline.com
-Version: 1.7
-Tags: two columns, fixed width, black, orange, widgets, minimalist, right sidebar, dark, graphics free, 
+Version: 1.7.1
+Tags: black, orange, two-columns, right-sidebar, left-sidebar, flexible-width, custom-background, custom-colors, custom-header, custom-menu, threaded-comments, seasonal
 
-The CSS, XHTML and design is released under GPL:
-http://www.opensource.org/licenses/gpl-license.php
-
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /* Begin Typography & Colors */
@@ -152,6 +151,18 @@ h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited, #sidebar
 #commentform p {
 	font-family: Verdana, Arial, Sans-Serif;
 	}
+
+#commentform label {
+	padding-right:25px;
+}
+
+#commentform input {
+	padding-left:20px;
+}
+
+#commentform textarea {
+	margin-top:5px;
+}
 
 .commentmetadata {
 	font-weight: normal;
@@ -752,3 +763,7 @@ html {
 }
 
 /* End of Custom Menus */
+
+.sticky {}
+.gallery-caption {}
+.bypostauthor {}

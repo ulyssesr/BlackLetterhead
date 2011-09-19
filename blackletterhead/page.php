@@ -5,7 +5,7 @@
     <h2 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h2>
       <div class="entrytext">
         <?php the_content('<p class="serif">Read more &raquo;</p>'); ?>
-        <?php link_pages('<p><strong>Pages:</strong> ', '</p>', 'number'); ?>
+        <?php wp_link_pages('<p><strong>Pages:</strong> ', '</p>', 'number'); ?>
       </div>
   </div>
   <?php endwhile; endif; ?>

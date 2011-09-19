@@ -21,6 +21,10 @@ add_theme_support('automatic-feed-links');
 
 add_theme_support( 'post-thumbnails' );
 
+/* Content Width */
+
+if ( ! isset( $content_width ) ) $content_width = 450;
+
 /* Custom Menus */
 
 add_theme_support('menus');
@@ -110,7 +114,7 @@ function blackletterhead_displayheader() {
 global $blackletterhead;
 if ($blackletterhead->option['removefromheader'] == "yes") { 
 print '';} else { ?>
-<h1><a href="<?php echo get_settings('home'); ?>"><?php bloginfo('name'); ?></a></h1>
+<h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
 <div class="description"><?php bloginfo('description'); ?></div>
 <?php }
 }
